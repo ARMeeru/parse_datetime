@@ -457,7 +457,7 @@ mod tests {
             ("mesz", off(false, 2, 0)),
             ("mest", off(false, 2, 0)),
             ("kst", off(false, 9, 0)),
-            // Corrected to the offsets of GNU date's zone table (gnulib parse-datetime.y).
+            // Corrected to the offsets GNU date assigns these abbreviations.
             ("adt", off(true, 3, 0)),   // Atlantic Daylight, was +4
             ("ast", off(true, 4, 0)),   // Atlantic Standard, was -3
             ("bst", off(false, 1, 0)),  // British Summer, was +6

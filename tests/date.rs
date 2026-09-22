@@ -298,9 +298,9 @@ fn test_embedded_timezone(#[case] input: &str, #[case] expected: &str) {
     check_absolute(input, expected);
 }
 
-// Zone abbreviations must resolve to the offsets of GNU date's zone table
-// (gnulib parse-datetime.y), not to other real meanings of the same letters,
-// e.g. BST as Bangladesh Standard Time rather than British Summer Time.
+// Zone abbreviations must resolve to the offsets GNU date assigns them,
+// not to other real meanings of the same letters, e.g. BST as Bangladesh
+// Standard Time rather than British Summer Time.
 #[rstest]
 #[case::bst("2026-06-15 12:00 BST", "2026-06-15 12:00:00+01:00")]
 #[case::gst("2026-06-15 12:00 GST", "2026-06-15 12:00:00+10:00")]
