@@ -300,7 +300,7 @@ fn timezone_name_to_offset(input: &str) -> ModalResult<Offset> {
         "ut" => Ok("+0"),
         "u" => Ok("-8"),
         "t" => Ok("-7"),
-        "sst" => Ok("-11"),
+        "sst" => Ok("-12"),
         "sgt" => Ok("+8"),
         "sast" => Ok("+2"),
         "s" => Ok("-6"),
@@ -457,14 +457,12 @@ mod tests {
             ("mesz", off(false, 2, 0)),
             ("mest", off(false, 2, 0)),
             ("kst", off(false, 9, 0)),
-            // Each of these resolved to a different real meaning of the
-            // abbreviation than the one GNU date uses, e.g. BST as Bangladesh
-            // Standard Time rather than British Summer Time.
+            // Corrected to the offsets of GNU date's zone table (gnulib parse-datetime.y).
             ("adt", off(true, 3, 0)),   // Atlantic Daylight, was +4
             ("ast", off(true, 4, 0)),   // Atlantic Standard, was -3
             ("bst", off(false, 1, 0)),  // British Summer, was +6
             ("gst", off(false, 10, 0)), // Guam Standard, was +4
-            ("sst", off(true, 11, 0)),
+            ("sst", off(true, 12, 0)),  // Samoa Standard, was -11
             ("z123", off(false, 0, 0)), // space separator can be ignored if immediately followed by digits (GNU date behavior)
         ] {
             let mut s = input;
